@@ -20,7 +20,6 @@ function Signup() {
                         <input type="password" placeholder="Enter Password" className="form-control rounded-0" />
                     </div>
                     <button className="btn btn-success w-100 rounded-0"><strong>Sign up</strong></button>
-                    <p>By logging in you are agreeing to our terms and policies</p>
                     <Link to="/" className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"><strong>Login</strong></Link>
                 </form>
             </div>
