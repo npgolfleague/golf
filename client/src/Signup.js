@@ -20,11 +20,12 @@ function Signup() {
     const handleSubmit =(event) => {
         console.log("handleSubmit entry");
         event.preventDefault();
-        setErrors(Validation(values));
-        console.log(errors); 
-        if( errors.email ==="" && errors.password ==="") {
+        const err = Validation(values);
+        setErrors(err);
+        if( err.email ==="" && err.password ==="") {
             console.log("building post");
-            axios.post('http://localhost:8081/signup', values)
+            axios.post(`http://localhost:8081/signup`
+            , values)
             .then(res => console.log(res))
             .catch(err => console.log(err));
         }
@@ -45,15 +46,6 @@ function Signup() {
                         onChange={handleInput} className="form-control rounded-0" 
                         name="email"/>
                         {errors.email && <span className="text-danger"> {errors.email}</span>}
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="phone"><strong>Phone</strong></label>
-                        <input type="text" placeholder="Enter Phone" className="form-control rounded-0"
-                        name="phone" />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="quota"><strong>Quota</strong></label>
-                        <input type="number" placeholder="Enter Quota" className="form-control rounded-0" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="password"><strong>Password</strong></label>

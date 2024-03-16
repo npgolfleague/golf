@@ -4,13 +4,14 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "Zin!1Ter9",
     database: "golf"
-})
+});
 
 app.post('/signup', (req, res) => {
     const sql = "INSERT INTO users  ('name' , 'email', 'phone','quota', 'password') VALUES (?)";
@@ -29,9 +30,9 @@ app.post('/signup', (req, res) => {
         }
         console.log("data path");
         return res.json(data);
-    })
-})
+    });
+});
 
 app.listen(8081, () => {
     console.log("Listening on port 8081");
-})
+});
